@@ -4,12 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build-client": "webpack",
+    "build-client-watch": "webpack -w",
+    "start": "node server/app.js",
+    "start-dev": "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server",
+    "start-server": "nodemon server/app.js -e html,js,scss --ignore public --ignore client",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

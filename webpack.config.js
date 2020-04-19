@@ -1,13 +1,10 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  watch: false,
   mode: 'development',
   entry: './src/index.js',
   output: {
-    filename: 'main.js',
-    path: path.resolve(__dirname, 'dist')
+    path: __dirname,
+    filename: './public/bundle.js'
   },
   module: {
     rules: [
@@ -17,10 +14,10 @@ module.exports = {
         loader: "babel-loader"
       }
     ]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'src/index.html'
-    })
-  ]
+  }
+  // plugins: [
+  //   new HtmlWebpackPlugin({
+  //     template: 'public/index.html'
+  //   })
+  // ]
 };
