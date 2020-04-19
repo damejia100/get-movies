@@ -1,2 +1,6 @@
+#api key
+secrets.js
+
+#dependencies
 /node_modules
-.env
+
