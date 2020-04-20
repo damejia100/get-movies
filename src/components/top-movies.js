@@ -1,5 +1,6 @@
 import React from 'react'
 import Axios from 'axios'
+import MovieCard from './movie-card'
 
 class TopMovies extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class TopMovies extends React.Component {
       this.setState({
         topTwenty: data.results
       })
+      // console.log('this.state.topTwenty>>', this.state.topTwenty)
     }
     catch (err) {
       console.log(err)
@@ -28,7 +30,7 @@ class TopMovies extends React.Component {
         <div className='top-movies-list'>
           {this.state.topTwenty.map(movie => {
             return (
-              <div key={movie.id}>{movie.title}</div>
+              <MovieCard key={movie.id} movie={movie}/>
             )
           })}
         </div>
