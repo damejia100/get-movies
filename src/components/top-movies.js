@@ -11,7 +11,7 @@ class TopMovies extends React.Component {
 
   async componentDidMount() {
     try {
-      const {data} = await Axios.get('https://api.themoviedb.org/3/movie/popular?api_key=1234')
+      const {data} = await Axios.get('/api/movies')
       this.setState({
         topTwenty: data.results
       })
