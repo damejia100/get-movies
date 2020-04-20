@@ -16,14 +16,12 @@ class TopMovies extends React.Component {
       this.setState({
         topTwenty: data.results
       })
-      // console.log('this.state.topTwenty>>', this.state.topTwenty)
     }
     catch (err) {
       console.log(err)
     }
   }
   render() {
-
     return (
       <div>
         <h2>Top Movies</h2>

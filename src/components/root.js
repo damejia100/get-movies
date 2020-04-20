@@ -1,17 +1,25 @@
 import React from 'react'
-import SearchBar from './search-bar'
-import TopMovies from './top-movies'
+import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
+
+import Home from './home'
+import MovieInfo from './movie-info'
 
 const Root = () => {
   return (
-    <div>
-      <h1>Get Movies</h1>
+    <Router>
+      <div id='container'>
+        <nav>
+          <Link to='/'>Home</Link>
+        </nav>
 
-      <SearchBar />
-
-      <TopMovies />
-    </div>
-
+        <div id='main-section'>
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route path='/:movieId' component={MovieInfo} />
+          </Switch>
+        </div>
+      </div>
+    </Router>
   )
 }
 

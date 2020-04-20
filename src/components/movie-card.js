@@ -1,12 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const MovieCard = (props) => {
-  const {title, overview, poster_path} = props.movie
+  const {id, title, overview, poster_path} = props.movie
+  const linkTo = `/${id}`
 
   return (
     <div className='movie-card'>
-      <h3>{title}</h3>
-      <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
+      <Link to={linkTo} movie={props.movie}>
+        <h3>{title}</h3>
+        <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
+      </Link>
     </div>
   )
 }
