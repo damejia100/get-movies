@@ -21,6 +21,7 @@ class TopMovies extends React.Component {
       console.log(err)
     }
   }
+
   render() {
     return (
       <div>

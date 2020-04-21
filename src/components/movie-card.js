@@ -2,7 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const MovieCard = (props) => {
-  const {id, title, overview, poster_path} = props.movie
+  console.log('props in movieCard>>', props)
+  const {id, title, poster_path} = props.movie
   const linkTo = `/${id}`
 
   return (

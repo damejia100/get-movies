@@ -12,6 +12,7 @@ class MovieInfo extends React.Component {
   async componentDidMount() {
     try {
       const { data } = await Axios.get(`/api/movies/${this.props.match.params.movieId}`)
+
       this.setState({
         movie: data
       })
@@ -21,6 +22,8 @@ class MovieInfo extends React.Component {
   }
 
   render() {
+    console.log('props in movieInfo>>', this.props)
+    console.log('this.state.movie in movieInfo>>', this.state.movie)
     const {title, overview, poster_path, release_date, genres} = this.state.movie
 
     return (
@@ -29,13 +32,6 @@ class MovieInfo extends React.Component {
         <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
         <p>{release_date}</p>
         <p>{overview}</p>
-
-        {/* {genres.map((genre, idx) => {
-            return (
-              <p>{genre.name}</p>
-            )
-          })
-        } */}
       </div>
     )
   }

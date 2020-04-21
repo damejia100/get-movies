@@ -1,20 +1,20 @@
-import React from "react";
+import React from "react"
 import Axios from 'axios'
+import SearchResults from './search-results'
+import TopMovies from "./top-movies";
 
 class SearchBar extends React.Component {
   constructor() {
     super();
     this.state = {
       query: '',
-      results: [],
-      loading: true
+      results: []
     };
     this.onChange = this.onChange.bind(this);
     this.search = this.search.bind(this);
   }
 
   onChange(event) {
-    console.log('event.target.value>>', event.target.value)
     this.setState({
       query: event.target.value
     })
@@ -22,14 +22,11 @@ class SearchBar extends React.Component {
   }
 
   async search(query) {
-    console.log('query in search function>>', query)
     try {
       const {data} = await Axios.get(`/api/movies/${query}`)
-      console.log('data returned in search function>>', data)
       this.setState({
         results: data
       })
-      console.log('this.state.results in search>>', this.state.results)
     } catch (error) {
       console.log(error)
     }
@@ -48,8 +45,19 @@ class SearchBar extends React.Component {
             value={this.state.query}
             onChange={this.onChange}
           />
-          {/* <i className="fa fa-search search-icon"/> */}
         </label>
+        {this.state.results.length !== 0 &&
+          <SearchResults results={this.state.results}/>
+        }
+
+        {/* {
+          this.state.results.length === 0 ? (
+            <TopMovies/>
+          ) : (
+            <SearchResults results={this.state.results}/>
+          )
+        } */}
+
         </form>
       </div>
     );
