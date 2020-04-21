@@ -22,8 +22,9 @@ class SearchBar extends React.Component {
   }
 
   async search(query) {
+
     try {
-      const {data} = await Axios.get(`/api/movies/${query}`)
+      const {data} = await Axios.get(`/api/movies/search/${query}`)
       this.setState({
         results: data
       })

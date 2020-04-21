@@ -12,7 +12,6 @@ class MovieInfo extends React.Component {
   async componentDidMount() {
     try {
       const { data } = await Axios.get(`/api/movies/${this.props.match.params.movieId}`)
-
       this.setState({
         movie: data
       })
@@ -22,9 +21,7 @@ class MovieInfo extends React.Component {
   }
 
   render() {
-    console.log('props in movieInfo>>', this.props)
-    console.log('this.state.movie in movieInfo>>', this.state.movie)
-    const {title, overview, poster_path, release_date, genres} = this.state.movie
+    const {title, overview, poster_path, release_date} = this.state.movie
 
     return (
       <div>
