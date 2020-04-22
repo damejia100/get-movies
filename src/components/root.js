@@ -5,6 +5,10 @@ import Home from './home'
 import styled from 'styled-components'
 import ActorInfo from './actor-info'
 
+const Main = styled.div`
+  background-color: #111111;
+`
+
 const Root = () => {
   return (
     <Router>
@@ -14,14 +18,14 @@ const Root = () => {
           <Link to='/'>Home</Link>
         </nav> */}
 
-        <div id='main-section'>
+        <Main>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/cast/:actorId' component={ActorInfo} />
             <Route exact path='/:movieId' component={MovieInfo} />
 
           </Switch>
-        </div>
+        </Main>
       {/* </main> */}
     </Router>
   )

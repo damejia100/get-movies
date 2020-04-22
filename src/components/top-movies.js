@@ -1,16 +1,18 @@
-import React from 'react'
+import React from 'react';
 import Axios from 'axios'
-import MovieCard from './movie-card'
 import styled from 'styled-components'
+import MovieCard from './movie-card'
 
 const SectionTitle = styled.h2`
   font-size: 36px;
+  text-align: center;
+  color: #e3e3e3;
 `
 const TopMoviesList = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-evenly;
 `
 
 

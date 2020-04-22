@@ -16,6 +16,7 @@ const HeroSection = styled.div`
 
 const HeroTitle = styled.h1`
   font-size: 48px;
+  color: #e3e3e3;
 `
 
 const Home = () => {
