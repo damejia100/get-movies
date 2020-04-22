@@ -1,5 +1,8 @@
 import React from 'react'
 import Axios from 'axios'
+import styled from 'styled-components'
+import MovieCard from './movie-card'
+
 
 class ActorInfo extends React.Component {
   constructor(props) {
@@ -10,9 +13,8 @@ class ActorInfo extends React.Component {
   }
 
   async componentDidMount() {
-    console.log('this.state in ActorInfo>>', this.state)
     try {
-      const { data } = await Axios.get(`/api/cast/${actor.id}`)
+      const { data } = await Axios.get(`/api/cast/${this.props.match.params.actorId}`)
       this.setState({
         movies: data.cast
       })
@@ -28,13 +30,13 @@ class ActorInfo extends React.Component {
         <h2>
           Filmography
         </h2>
-        {/* {
-          this.state.cast.map(actor => {
-          return (
-            <div key={actor.id}> {actor.name} </div>
-          )
-          })
-        } */}
+          {this.state.movies.map(movie => {
+            return (
+              <div key={movie.id}>
+                <MovieCard movie={movie}/>
+              </div>
+            )
+          })}
       </div>
     )
   }
