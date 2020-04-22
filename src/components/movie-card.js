@@ -8,8 +8,8 @@ const Card = styled.div`
   border-radius: 4px;
   text-decoration: none;
   padding: 16px;
-  margin: 16px;
-  width: 325px;
+  margin: 8px;
+  width: 300px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,7 +17,7 @@ const Card = styled.div`
 `
 
 const MovieTitle = styled.h3`
-  color: #e3e3e3;
+
 `
 
 const MovieLink = styled(Link)`
@@ -25,7 +25,11 @@ const MovieLink = styled(Link)`
 `;
 
 const MovieDetails = styled.p`
-  color: #e3e3e3;
+
+`
+
+const MovieImage = styled.img`
+  border-radius: 4px;
 `
 
 const getYear = date => new Date(date).getFullYear()
@@ -40,7 +44,7 @@ const MovieCard = (props) => {
       <MovieLink to={linkTo}>
         <MovieTitle>{title}</MovieTitle>
         <MovieDetails>{getYear(release_date)}</MovieDetails>
-        <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
+        <MovieImage src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
       </MovieLink>
     </Card>
   )

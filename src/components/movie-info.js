@@ -1,6 +1,20 @@
 import React from 'react'
 import Axios from 'axios'
 import CastList from './cast-list'
+import styled from 'styled-components'
+
+const MoviePage = styled.div`
+  display: flex;
+  flex-direction: row;
+`
+
+const MovieInfoLeft = styled.div`
+  flex: 1;
+`
+
+const MovieInfoRight = styled.div`
+  flex: 1;
+`
 
 class MovieInfo extends React.Component {
   constructor(props) {
@@ -8,6 +22,7 @@ class MovieInfo extends React.Component {
     this.state = {
       movie: {}
     }
+    this.getYear = this.getYear.bind(this)
   }
 
   async componentDidMount() {
@@ -21,17 +36,25 @@ class MovieInfo extends React.Component {
     }
   }
 
+  getYear(date) {
+    return new Date(date).getFullYear()
+  }
+
   render() {
     const {title, overview, poster_path, release_date, id} = this.state.movie
 
     return (
-      <div>
-        <h2>{title}</h2>
-        <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
-        <p>{release_date}</p>
-        <p>{overview}</p>
-        <CastList movieId={this.props.match.params.movieId}/>
-      </div>
+      <MoviePage>
+        <MovieInfoLeft>
+          <h2>{title}</h2>
+          <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
+          <p>{this.getYear(release_date)}</p>
+          <p>{overview}</p>
+          </MovieInfoLeft>
+          <MovieInfoRight>
+            <CastList movieId={this.props.match.params.movieId}/>
+          </MovieInfoRight>
+      </MoviePage>
     )
   }
 }
