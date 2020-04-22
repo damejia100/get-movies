@@ -2,6 +2,18 @@ import React from "react"
 import Axios from 'axios'
 import SearchResults from './search-results'
 import TopMovies from "./top-movies";
+import styled from 'styled-components'
+
+// const Input = styled.input`
+//   padding: 24px;
+//   margin: 0.5em;
+//   background: #A8DADC;
+//   border: none;
+//   border-radius: 25px;
+//   width: 75%;
+//   color: #2B303A;
+//   font-size: 16px;
+// `;
 
 class SearchBar extends React.Component {
   constructor() {
@@ -58,7 +70,6 @@ class SearchBar extends React.Component {
             <SearchResults results={this.state.results}/>
           )
         } */}
-
         </form>
       </div>
     );

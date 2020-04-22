@@ -1,5 +1,6 @@
 import React from 'react'
 import Axios from 'axios'
+import CastList from './cast-list'
 
 class MovieInfo extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class MovieInfo extends React.Component {
   }
 
   render() {
-    const {title, overview, poster_path, release_date} = this.state.movie
+    const {title, overview, poster_path, release_date, id} = this.state.movie
 
     return (
       <div>
@@ -29,6 +30,7 @@ class MovieInfo extends React.Component {
         <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
         <p>{release_date}</p>
         <p>{overview}</p>
+        <CastList movieId={this.props.match.params.movieId}/>
       </div>
     )
   }

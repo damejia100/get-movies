@@ -11,6 +11,15 @@ router.get('/search/:searchQuery', async (req, res, next) => {
   }
 })
 
+router.get('/:movieId/cast', async (req, res, next) => {
+  try {
+    const {data} = await Axios.get(`https://api.themoviedb.org/3/movie/${req.params.movieId}/credits?api_key=${MOVIE_DB_API_KEY}`)
+    res.send(data)
+  } catch (error) {
+    next(error)
+  }
+})
+
 router.get('/:movieId', async (req, res, next) => {
   try {
     const {data} = await Axios.get(`https://api.themoviedb.org/3/movie/${req.params.movieId}?api_key=${MOVIE_DB_API_KEY}&language=en-US`)
