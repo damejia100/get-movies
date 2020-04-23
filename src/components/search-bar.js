@@ -35,6 +35,7 @@ class SearchBar extends React.Component {
   }
 
   onChange(event) {
+    console.log('event.target.value>>', event.target.value)
     this.setState({
       query: event.target.value
     })
@@ -42,12 +43,12 @@ class SearchBar extends React.Component {
   }
 
   async search(query) {
-
     try {
       const {data} = await Axios.get(`/api/movies/search/${query}`)
       this.setState({
         results: data
       })
+      console.log('this.state>>', this.state)
     } catch (error) {
       console.log(error)
     }
@@ -67,6 +68,7 @@ class SearchBar extends React.Component {
             onChange={this.onChange}
           />
         </label>
+
         {this.state.results.length !== 0 &&
           <SearchResults results={this.state.results}/>
         }

@@ -34,6 +34,7 @@ const ActorDetails = styled.div`
 `
 
 const ActorImg = styled.img`
+  max-width: 300px;
   flex: 1;
   flex-shrink: 1;
   border-radius: 4px;
@@ -91,19 +92,19 @@ class ActorInfo extends React.Component {
       <ActorPage>
 
         <ActorPageTop>
-          <h2>{this.state.actor.name}</h2>
-          <ActorBirthdate>{this.getYear(this.state.actor.birthday)}</ActorBirthdate>
+          <h2>{name}</h2>
+          <ActorBirthdate>{this.getYear(birthday)}</ActorBirthdate>
 
           <ActorDetails>
             {
               profile_path
-              ? <ActorImg src={`https://image.tmdb.org/t/p/w300${this.state.actor.profile_path}`} />
+              ? <ActorImg src={`https://image.tmdb.org/t/p/w300${profile_path}`} />
               : <ProfileIcon>
                   <FontAwesomeIcon icon='portrait' size="3x"/>
                 </ProfileIcon>
             }
 
-            <ActorBio>{this.state.actor.biography}</ActorBio>
+            <ActorBio>{biography}</ActorBio>
           </ActorDetails>
 
         </ActorPageTop>

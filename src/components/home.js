@@ -1,9 +1,6 @@
 import React from 'react'
 import SearchBar from './search-bar'
 import TopMovies from './top-movies'
-import Container from '@material-ui/core/Container';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import styled from 'styled-components'
 
 const HeroSection = styled.div`
@@ -16,6 +13,7 @@ const HeroSection = styled.div`
 
 const HeroTitle = styled.h1`
   font-size: 48px;
+  text-align: center;
 `
 
 const Home = () => {

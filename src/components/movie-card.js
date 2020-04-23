@@ -14,6 +14,7 @@ const Card = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  box-shadow: 0 8px 6px -6px black;
 `
 
 const MovieTitle = styled.h3`
@@ -50,7 +51,6 @@ const MovieCard = (props) => {
       <MovieLink to={linkTo}>
         <MovieTitle>{title}</MovieTitle>
         <MovieReleaseDate>{getYear(release_date)}</MovieReleaseDate>
-
         {
           poster_path
           ? <MovieImage src={`https://image.tmdb.org/t/p/w300${poster_path}`} />

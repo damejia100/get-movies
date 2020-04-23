@@ -4,6 +4,12 @@ import MovieInfo from './movie-info'
 import Home from './home'
 import styled from 'styled-components'
 import ActorInfo from './actor-info'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
+const Nav = styled.nav`
+  color: #f9a824;
+  left: 100px;
+`
 
 const Main = styled.div`
   background-color: #111111;
@@ -13,24 +19,27 @@ const Main = styled.div`
   text-decoration: none;
 `
 
+const HomeLink = styled(Link)`
+  text-decoration: none;
+  color: #f9a824;
+`;
+
 const Root = () => {
   return (
     <Router>
-      {/* <main> */}
-
-        {/* <nav>
-          <Link to='/'>Home</Link>
-        </nav> */}
+        <Nav>
+          <HomeLink to='/'>
+            <FontAwesomeIcon icon='video' size="2x"/>
+          </HomeLink>
+        </Nav>
 
         <Main>
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/cast/:actorId' component={ActorInfo} />
             <Route exact path='/:movieId' component={MovieInfo} />
-
           </Switch>
         </Main>
-      {/* </main> */}
     </Router>
   )
 }
