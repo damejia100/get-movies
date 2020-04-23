@@ -3,6 +3,11 @@ import Axios from 'axios'
 import styled from 'styled-components'
 import MovieCard from './movie-card'
 
+const MovieList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`
+
 
 class ActorMovieList extends React.Component {
   constructor(props) {
@@ -25,10 +30,7 @@ class ActorMovieList extends React.Component {
 
   render() {
     return (
-      <div>
-        <h2>
-          Filmography
-        </h2>
+      <MovieList>
           {this.state.movies.map(movie => {
             return (
               <div key={movie.id}>
@@ -36,7 +38,7 @@ class ActorMovieList extends React.Component {
               </div>
             )
           })}
-      </div>
+      </MovieList>
     )
   }
 

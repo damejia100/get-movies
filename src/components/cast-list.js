@@ -1,6 +1,21 @@
 import React from 'react'
 import Axios from 'axios'
 import {Link} from 'react-router-dom'
+import styled from 'styled-components'
+
+const Cast = styled.div`
+  display: inline-flex;
+  flex-direction: row;
+  border: 1px solid #f9a824;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 4px;
+`
+
+const ActorLink = styled(Link)`
+  text-decoration: none;
+  color: #ffffff;
+`;
 
 class CastList extends React.Component {
   constructor(props) {
@@ -30,15 +45,14 @@ class CastList extends React.Component {
         </h2>
         {this.state.cast.map(actor => {
           const linkTo = `/cast/${actor.id}`
-
           return (
-            <div className='cast-list' key={actor.id}>
-              <Link to={linkTo} actor={actor}>
+            <Cast key={actor.id}>
+              <ActorLink to={linkTo} actor={actor}>
                 <div key={actor.id}>
                   {actor.name}
                 </div>
-              </Link>
-            </div>
+              </ActorLink>
+            </Cast>
           )
         })
       }

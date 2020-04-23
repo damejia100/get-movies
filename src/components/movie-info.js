@@ -6,14 +6,36 @@ import styled from 'styled-components'
 const MoviePage = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 `
 
 const MovieInfoLeft = styled.div`
   flex: 1;
+  background-color: #1e1e1e;
+  padding: 16px;
+  margin: 8px;
+  border-radius: 4px;
 `
 
 const MovieInfoRight = styled.div`
   flex: 1;
+  background-color: #1e1e1e;
+  padding: 16px;
+  margin: 8px;
+  border-radius: 4px;
+  height: fit-content;
+`
+
+const MoviePoster = styled.img`
+  border-radius: 4px;
+`
+
+const MovieReleaseDate = styled.p`
+  color: #9475ea;
+`
+
+const MovieOverview = styled.p`
+  line-height: 1.5;
 `
 
 class MovieInfo extends React.Component {
@@ -47,13 +69,14 @@ class MovieInfo extends React.Component {
       <MoviePage>
         <MovieInfoLeft>
           <h2>{title}</h2>
-          <img src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
-          <p>{this.getYear(release_date)}</p>
-          <p>{overview}</p>
-          </MovieInfoLeft>
-          <MovieInfoRight>
-            <CastList movieId={this.props.match.params.movieId}/>
-          </MovieInfoRight>
+          <MovieReleaseDate>{this.getYear(release_date)}</MovieReleaseDate>
+          <MoviePoster src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
+          <MovieOverview>{overview}</MovieOverview>
+        </MovieInfoLeft>
+
+        <MovieInfoRight>
+          <CastList movieId={this.props.match.params.movieId}/>
+        </MovieInfoRight>
       </MoviePage>
     )
   }

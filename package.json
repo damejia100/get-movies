@@ -19,6 +19,7 @@
     "@material-ui/icons": "^4.9.1",
     "axios": "^0.19.2",
     "express": "^4.17.1",
+    "moment": "^2.24.0",
     "morgan": "^1.10.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

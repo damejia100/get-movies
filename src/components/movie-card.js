@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-
 const Card = styled.div`
   background-color: #1e1e1e;
   border-radius: 4px;
@@ -27,9 +26,8 @@ const MovieLink = styled(Link)`
 `;
 
 const MovieReleaseDate = styled.p`
-  color: #fd5722;
+  color: #9475ea;
 `
-// purple color: color: #9475ea;
 
 const MovieImage = styled.img`
   border-radius: 4px;
