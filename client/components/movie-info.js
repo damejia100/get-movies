@@ -72,8 +72,7 @@ class MovieInfo extends React.Component {
         <MovieInfoLeft>
           <h2>{title}</h2>
           <MovieReleaseDate>{this.getYear(release_date)}</MovieReleaseDate>
-          {
-            poster_path
+          { poster_path
             ? <MoviePoster src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
             : <FontAwesomeIcon icon='film' size="3x" />
           }

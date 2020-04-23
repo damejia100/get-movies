@@ -85,35 +85,33 @@ class ActorInfo extends React.Component {
   }
 
   render() {
-
     const {name, birthday, profile_path, biography} = this.state.actor
 
     return (
       <ActorPage>
-
         <ActorPageTop>
           <h2>{name}</h2>
-          <ActorBirthdate>{this.getYear(birthday)}</ActorBirthdate>
-
+          { birthday
+            ? <ActorBirthdate>{this.getYear(birthday)}</ActorBirthdate>
+            : <ActorBirthdate>Birth date not found</ActorBirthdate>
+          }
           <ActorDetails>
-            {
-              profile_path
+            { profile_path
               ? <ActorImg src={`https://image.tmdb.org/t/p/w300${profile_path}`} />
               : <ProfileIcon>
                   <FontAwesomeIcon icon='portrait' size="3x"/>
                 </ProfileIcon>
             }
-
-            <ActorBio>{biography}</ActorBio>
+            { biography
+              ? <ActorBio>{biography}</ActorBio>
+              : <ActorBio>Sorry! No information found on this actor.</ActorBio>
+            }
           </ActorDetails>
-
         </ActorPageTop>
-
         <ActorPageBottom>
           <FilmTitle>Filmography</FilmTitle>
           <ActorMovieList actorId={this.state.actorId}/>
         </ActorPageBottom>
-
       </ActorPage>
     )
   }

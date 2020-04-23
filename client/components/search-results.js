@@ -10,12 +10,11 @@ const SearchResultsList = styled.div`
 `
 
 const SearchResults = (props) => {
-  const {results} = props.results
+  const { results } = props.results
 
   return (
     <SearchResultsList>
-      {
-        results.map(movie => {
+      { results.map(movie => {
           return (
             <MovieCard key={movie.id} movie={movie}/>
           )

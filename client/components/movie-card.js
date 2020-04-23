@@ -51,15 +51,12 @@ const MovieCard = (props) => {
       <MovieLink to={linkTo}>
         <MovieTitle>{title}</MovieTitle>
         <MovieReleaseDate>{getYear(release_date)}</MovieReleaseDate>
-        {
-          poster_path
+        { poster_path
           ? <MovieImage src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
-          :
-          <FilmIcon>
-            <FontAwesomeIcon icon='film' size="3x"/>
-          </FilmIcon>
+          : <FilmIcon>
+              <FontAwesomeIcon icon='film' size="3x"/>
+            </FilmIcon>
         }
-
       </MovieLink>
     </Card>
   )

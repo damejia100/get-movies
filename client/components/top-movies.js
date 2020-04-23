@@ -45,12 +45,9 @@ class TopMovies extends React.Component {
             )
           })}
         </TopMoviesList>
-
       </div>
     )
-
   }
-
 }
 
 

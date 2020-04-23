@@ -23,7 +23,6 @@ const Home = () => {
         <HeroTitle>Get Movies</HeroTitle>
         <SearchBar />
       </HeroSection>
-
       <TopMovies />
     </div>
   )

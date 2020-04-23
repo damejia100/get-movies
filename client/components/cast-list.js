@@ -43,9 +43,7 @@ class CastList extends React.Component {
 
     return (
       <div>
-        <h2>
-          Cast List
-        </h2>
+        <h2>Cast List</h2>
         {this.state.cast.map(actor => {
           const linkTo = `/cast/${actor.id}`
           return (
