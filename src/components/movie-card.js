@@ -17,16 +17,19 @@ const Card = styled.div`
 `
 
 const MovieTitle = styled.h3`
-
+  margin-top: 12px;
+  margin-bottom: 12px;
+  color: #ffffff;
 `
 
 const MovieLink = styled(Link)`
   text-decoration: none;
 `;
 
-const MovieDetails = styled.p`
-
+const MovieReleaseDate = styled.p`
+  color: #fd5722;
 `
+// purple color: color: #9475ea;
 
 const MovieImage = styled.img`
   border-radius: 4px;
@@ -43,7 +46,7 @@ const MovieCard = (props) => {
     <Card>
       <MovieLink to={linkTo}>
         <MovieTitle>{title}</MovieTitle>
-        <MovieDetails>{getYear(release_date)}</MovieDetails>
+        <MovieReleaseDate>{getYear(release_date)}</MovieReleaseDate>
         <MovieImage src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
       </MovieLink>
     </Card>

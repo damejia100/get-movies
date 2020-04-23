@@ -19,7 +19,6 @@ class ActorInfo extends React.Component {
       this.setState({
         actor: data
       })
-      // console.log('this.state in ActorInfo>>', this.state)
     } catch (error) {
       console.log(error)
     }
@@ -28,6 +27,7 @@ class ActorInfo extends React.Component {
   render() {
     return (
       <div>
+        <img src={`https://image.tmdb.org/t/p/w300${this.state.actor.profile_path}`} />
         <h2>{this.state.actor.name}</h2>
         <p>{this.state.actor.birthday}</p>
         <p>{this.state.actor.biography}</p>

@@ -13,14 +13,11 @@ class ActorMovieList extends React.Component {
   }
 
   async componentDidMount() {
-    // console.log('this.props>>', this.props)
     try {
       const { data } = await Axios.get(`/api/cast/${this.props.actorId}/movies`)
       this.setState({
         movies: data.cast
       })
-      // console.log('data returned to front>>', data)
-      // console.log('this.state in ActorMovieList>>', this.state)
     } catch (error) {
       console.log(error)
     }
@@ -29,7 +26,6 @@ class ActorMovieList extends React.Component {
   render() {
     return (
       <div>
-
         <h2>
           Filmography
         </h2>

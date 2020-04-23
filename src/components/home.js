@@ -11,6 +11,7 @@ const HeroSection = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 64px;
 `
 
 const HeroTitle = styled.h1`

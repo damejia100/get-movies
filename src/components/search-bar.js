@@ -4,16 +4,18 @@ import SearchResults from './search-results'
 import TopMovies from "./top-movies";
 import styled from 'styled-components'
 
-// const Input = styled.input`
-//   padding: 24px;
-//   margin: 0.5em;
-//   background: #A8DADC;
-//   border: none;
-//   border-radius: 25px;
-//   width: 75%;
-//   color: #2B303A;
-//   font-size: 16px;
-// `;
+const Input = styled.input`
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 250px;
+`;
+
+const SearchSection = styled.div`
+  display: flex;
+  margin: 32px;
+`
 
 class SearchBar extends React.Component {
   constructor() {
@@ -47,14 +49,14 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div>
+      <SearchSection>
         <form>
           <label className="search-label">
-          <input
+          <Input
             type="text"
             name="query"
             id="search-input"
-            placeholder="Search..."
+            placeholder="Search for a movie, like Cars, Parasite, etc."
             value={this.state.query}
             onChange={this.onChange}
           />
@@ -71,7 +73,7 @@ class SearchBar extends React.Component {
           )
         } */}
         </form>
-      </div>
+      </SearchSection>
     );
   }
 }

@@ -14,7 +14,6 @@ const TopMoviesList = styled.div`
   justify-content: center;
 `
 
-
 class TopMovies extends React.Component {
   constructor(props) {
     super(props);

@@ -7,7 +7,7 @@ import ActorInfo from './actor-info'
 
 const Main = styled.div`
   background-color: #111111;
-  color: #e3e3e3;
+  color: #ffffff;
   font-family: Roboto;
   padding: 48px;
   text-decoration: none;
