@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Card = styled.div`
   background-color: #1e1e1e;
@@ -11,7 +12,7 @@ const Card = styled.div`
   width: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 `
 
@@ -33,6 +34,10 @@ const MovieImage = styled.img`
   border-radius: 4px;
 `
 
+const FilmIcon = styled.svg`
+  color: #ffffff;
+`
+
 const getYear = date => new Date(date).getFullYear()
 
 
@@ -45,7 +50,16 @@ const MovieCard = (props) => {
       <MovieLink to={linkTo}>
         <MovieTitle>{title}</MovieTitle>
         <MovieReleaseDate>{getYear(release_date)}</MovieReleaseDate>
-        <MovieImage src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
+
+        {
+          poster_path
+          ? <MovieImage src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
+          :
+          <FilmIcon>
+            <FontAwesomeIcon icon='film' size="3x"/>
+          </FilmIcon>
+        }
+
       </MovieLink>
     </Card>
   )

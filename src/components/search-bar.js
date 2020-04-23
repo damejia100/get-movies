@@ -17,6 +17,12 @@ const SearchSection = styled.div`
   margin: 32px;
 `
 
+const Form = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 class SearchBar extends React.Component {
   constructor() {
     super();
@@ -50,7 +56,7 @@ class SearchBar extends React.Component {
   render() {
     return (
       <SearchSection>
-        <form>
+        <Form>
           <label className="search-label">
           <Input
             type="text"
@@ -72,7 +78,7 @@ class SearchBar extends React.Component {
             <SearchResults results={this.state.results}/>
           )
         } */}
-        </form>
+        </Form>
       </SearchSection>
     );
   }

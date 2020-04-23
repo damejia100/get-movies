@@ -7,7 +7,10 @@ const MovieList = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
-
+const Movie = styled.div`
+  display: flex;
+  align-items: stretch;
+`
 
 class ActorMovieList extends React.Component {
   constructor(props) {
@@ -33,9 +36,9 @@ class ActorMovieList extends React.Component {
       <MovieList>
           {this.state.movies.map(movie => {
             return (
-              <div key={movie.id}>
+              <Movie key={movie.id}>
                 <MovieCard movie={movie}/>
-              </div>
+              </Movie>
             )
           })}
       </MovieList>

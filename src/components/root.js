@@ -9,7 +9,7 @@ const Main = styled.div`
   background-color: #111111;
   color: #ffffff;
   font-family: Roboto;
-  padding: 48px;
+  padding: 36px;
   text-decoration: none;
 `
 

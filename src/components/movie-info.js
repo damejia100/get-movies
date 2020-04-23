@@ -2,6 +2,7 @@ import React from 'react'
 import Axios from 'axios'
 import CastList from './cast-list'
 import styled from 'styled-components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const MoviePage = styled.div`
   display: flex;
@@ -15,6 +16,7 @@ const MovieInfoLeft = styled.div`
   padding: 16px;
   margin: 8px;
   border-radius: 4px;
+  height: fit-content;
 `
 
 const MovieInfoRight = styled.div`
@@ -63,14 +65,18 @@ class MovieInfo extends React.Component {
   }
 
   render() {
-    const {title, overview, poster_path, release_date, id} = this.state.movie
+    const {title, overview, poster_path, release_date, id, backdrop_path} = this.state.movie
 
     return (
       <MoviePage>
         <MovieInfoLeft>
           <h2>{title}</h2>
           <MovieReleaseDate>{this.getYear(release_date)}</MovieReleaseDate>
-          <MoviePoster src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
+          {
+            poster_path
+            ? <MoviePoster src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
+            : <FontAwesomeIcon icon='film' size="3x" />
+          }
           <MovieOverview>{overview}</MovieOverview>
         </MovieInfoLeft>
 

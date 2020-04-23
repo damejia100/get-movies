@@ -3,6 +3,7 @@ import Axios from 'axios'
 import styled from 'styled-components'
 import ActorMovieList from './actor-movie-list'
 import moment from 'moment'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ActorPage = styled.div`
   display: flex;
@@ -38,17 +39,23 @@ const ActorImg = styled.img`
   border-radius: 4px;
   height: min-content;
   width: min-content;
+  margin-bottom: 16px;
 `
 
 const ActorBio = styled.p`
   flex: 1;
   flex-grow: 3;
   line-height: 1.5;
-  padding: 0 36px;
+  padding: 0 16px;
+  margin: 0;
 `
 
 const FilmTitle = styled.h3`
   padding-left: 8px;
+`
+
+const ProfileIcon = styled.svg`
+  color: #ffffff;
 `
 
 class ActorInfo extends React.Component {
@@ -77,6 +84,9 @@ class ActorInfo extends React.Component {
   }
 
   render() {
+
+    const {name, birthday, profile_path, biography} = this.state.actor
+
     return (
       <ActorPage>
 
@@ -85,7 +95,13 @@ class ActorInfo extends React.Component {
           <ActorBirthdate>{this.getYear(this.state.actor.birthday)}</ActorBirthdate>
 
           <ActorDetails>
-            <ActorImg src={`https://image.tmdb.org/t/p/w300${this.state.actor.profile_path}`} />
+            {
+              profile_path
+              ? <ActorImg src={`https://image.tmdb.org/t/p/w300${this.state.actor.profile_path}`} />
+              : <ProfileIcon>
+                  <FontAwesomeIcon icon='portrait' size="3x"/>
+                </ProfileIcon>
+            }
 
             <ActorBio>{this.state.actor.biography}</ActorBio>
           </ActorDetails>

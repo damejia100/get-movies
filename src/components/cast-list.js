@@ -10,6 +10,9 @@ const Cast = styled.div`
   padding: 8px;
   margin: 8px;
   border-radius: 4px;
+  &:hover {
+    border: 1px solid #9475ea;
+  }
 `
 
 const ActorLink = styled(Link)`
