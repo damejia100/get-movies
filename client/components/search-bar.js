@@ -38,7 +38,14 @@ class SearchBar extends React.Component {
     this.setState({
       query: event.target.value
     })
-    this.search(this.state.query)
+    if (event.target.value) {
+      this.search(this.state.query)
+    }
+    else {
+      this.setState({
+        results: []
+      })
+    }
   }
 
   async search(query) {

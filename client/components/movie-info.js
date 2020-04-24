@@ -17,6 +17,7 @@ const MovieInfoLeft = styled.div`
   margin: 8px;
   border-radius: 4px;
   height: fit-content;
+  box-shadow: 0 8px 6px -6px black;
 `
 
 const MovieInfoRight = styled.div`
@@ -26,6 +27,7 @@ const MovieInfoRight = styled.div`
   margin: 8px;
   border-radius: 4px;
   height: fit-content;
+  box-shadow: 0 8px 6px -6px black;
 `
 
 const MoviePoster = styled.img`

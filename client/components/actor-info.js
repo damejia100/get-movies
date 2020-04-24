@@ -17,6 +17,7 @@ const ActorPageTop = styled.div`
   margin: 8px;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 8px 6px -6px black;
 `
 
 const ActorPageBottom = styled.div`
