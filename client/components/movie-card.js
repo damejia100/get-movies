@@ -39,27 +39,46 @@ const FilmIcon = styled.svg`
   color: #ffffff;
 `
 
-const getYear = date => new Date(date).getFullYear()
 
+class MovieCard extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      movie: props.movie,
+      movieReleaseDate: props.movie.release_date
+    }
+    this.getYear = this.getYear.bind(this)
+  }
 
-const MovieCard = (props) => {
-  const {id, title, poster_path, release_date} = props.movie
-  const linkTo = `/${id}`
+  componentDidMount() {
+    this.setState({
+      movieReleaseDate: this.getYear(this.state.movieReleaseDate)
+    })
+  }
 
-  return (
-    <Card>
-      <MovieLink to={linkTo}>
-        <MovieTitle>{title}</MovieTitle>
-        <MovieReleaseDate>{getYear(release_date)}</MovieReleaseDate>
-        { poster_path
-          ? <MovieImage src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
-          : <FilmIcon>
-              <FontAwesomeIcon icon='film' size="3x"/>
-            </FilmIcon>
-        }
-      </MovieLink>
-    </Card>
-  )
+  getYear(date) {
+    return new Date(date).getFullYear()
+  }
+
+  render() {
+    const {id, title, poster_path} = this.state.movie
+    const linkTo = `/${id}`
+
+    return (
+      <Card>
+        <MovieLink to={linkTo}>
+          <MovieTitle>{title}</MovieTitle>
+          <MovieReleaseDate>{this.state.movieReleaseDate}</MovieReleaseDate>
+          { poster_path
+            ? <MovieImage src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
+            : <FilmIcon>
+                <FontAwesomeIcon icon='film' size="3x"/>
+              </FilmIcon>
+          }
+        </MovieLink>
+      </Card>
+    )
+  }
 }
 
 export default MovieCard

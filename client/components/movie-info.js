@@ -46,7 +46,8 @@ class MovieInfo extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      movie: {}
+      movie: {},
+      movieReleaseDate: ''
     }
     this.getYear = this.getYear.bind(this)
   }
@@ -55,7 +56,8 @@ class MovieInfo extends React.Component {
     try {
       const { data } = await Axios.get(`/api/movies/${this.props.match.params.movieId}`)
       this.setState({
-        movie: data
+        movie: data,
+        movieReleaseDate: this.getYear(data.release_date)
       })
     } catch (error) {
       console.log(error)
@@ -67,13 +69,13 @@ class MovieInfo extends React.Component {
   }
 
   render() {
-    const {title, overview, poster_path, release_date, id, backdrop_path} = this.state.movie
+    const {title, overview, poster_path} = this.state.movie
 
     return (
       <MoviePage>
         <MovieInfoLeft>
           <h2>{title}</h2>
-          <MovieReleaseDate>{this.getYear(release_date)}</MovieReleaseDate>
+          <MovieReleaseDate>{this.state.movieReleaseDate}</MovieReleaseDate>
           { poster_path
             ? <MoviePoster src={`https://image.tmdb.org/t/p/w300${poster_path}`} />
             : <FontAwesomeIcon icon='film' size="3x" />
